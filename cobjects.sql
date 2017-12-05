@@ -259,8 +259,20 @@ SELECT instrument.name  FROM instrument WHERE instrument.name = 'SOAR'  OR instr
 INSERT INTO star_name VALUES
     (11, 'EBLM J0555-57Ab', 10, 'CD−57 1311, CPD−57 913, WDS J05555-5717, TYC 8528-926-1, 2MASS J05553262-5717261');
 
-SELECT * FROM star_name;
+SELECT * FROM observatory;
 
 UPDATE star_name SET name='EBLM 57' WHERE id = 11;
 
 DELETE  FROM star_name WHERE id = 11;
+
+SELECT star_name.name FROM star_name, observation_data WHERE  star_name.id=1;
+
+ALTER TABLE star_name DROP COLUMN other_names;
+
+ALTER TABLE observatory ADD people INTEGER;
+
+CREATE INDEX check_observatory_id ON observatory (id);
+
+DROP INDEX check_observatory_id;
+
+SELECT * INTO untitled FROM star_name WHERE star_name.name = 'Сириус';
