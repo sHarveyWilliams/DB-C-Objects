@@ -246,14 +246,21 @@ INSERT INTO types VALUES
     (11, 11, 'Звезды')
 ;
 
+SELECT *  FROM star_name;
 
+SELECT *  FROM characteristics WHERE characteristics.spectral_type = 'Красные карлики';
 
-DELETE FROM instrument WHERE id = '0';
+SELECT observation_data.constellation, observation_data.declination FROM observation_data WHERE id = 1;
 
-SELECT * FROM observation_data;
+SELECT observation_data.constellation, observation_data.right_ascension  FROM observation_data WHERE observation_data.apparent_magnitude > 3 AND observation_data.declination IS NOT NULL;
 
-DELETE FROM observation_data WHERE id='3';
+SELECT instrument.name  FROM instrument WHERE instrument.name = 'SOAR'  OR instrument.description = 'Телескоп';
 
-DROP TABLE observation_data;
+INSERT INTO star_name VALUES
+    (11, 'EBLM J0555-57Ab', 10, 'CD−57 1311, CPD−57 913, WDS J05555-5717, TYC 8528-926-1, 2MASS J05553262-5717261');
 
+SELECT * FROM star_name;
 
+UPDATE star_name SET name='EBLM 57' WHERE id = 11;
+
+DELETE  FROM star_name WHERE id = 11;
