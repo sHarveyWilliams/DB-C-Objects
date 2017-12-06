@@ -276,3 +276,10 @@ CREATE INDEX check_observatory_id ON observatory (id);
 DROP INDEX check_observatory_id;
 
 SELECT * INTO untitled FROM star_name WHERE star_name.name = 'Сириус';
+
+CREATE VIEW list AS
+SELECT constellation,right_ascension, declination, apparent_magnitude FROM observation_data;
+
+SELECT * FROM list;
+
+DROP VIEW list;
